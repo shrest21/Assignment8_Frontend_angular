@@ -1,7 +1,7 @@
-<div class="login-container">
-  <div class="login-card">
+<div class="register-container">
+  <div class="register-card">
 
-    <div class="login-header">
+    <div class="register-header">
       <div class="header-icon">
         <svg class="user-icon" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24">
@@ -15,7 +15,7 @@
 
     @if (!isLoggedIn) {
     <form
-      class="login-form"
+      class="register-form"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
@@ -86,7 +86,7 @@
 
       <p class="footer-text">
         Don’t have an account?
-        <a routerLink="/register" class="link">Create one</a>
+        <a routerLink="/register" class="link">Sign up here</a>
       </p>
 
     </form>
