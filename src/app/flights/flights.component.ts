@@ -45,7 +45,6 @@ export class FlightsComponent implements OnInit {
     });
   }
 
-  // Add this new method for CSS classes
   getAirlineClass(airline: string): string {
     const classes: { [key: string]: string } = {
       'SpiceJet': 'airline-spicejet',
@@ -57,7 +56,6 @@ export class FlightsComponent implements OnInit {
     return classes[airline] || 'airline-default';
   }
 
-  // Keep the existing getAirlineColor method (not used with pure CSS version)
   getAirlineColor(airline: string): string {
     const colors: { [key: string]: string } = {
       'SpiceJet': 'from-red-500 to-orange-500',
@@ -89,7 +87,6 @@ export class FlightsComponent implements OnInit {
 
   bookFlight(flight: any): void {
     console.log('Booking flight:', flight);
-    // Add your booking logic here
     alert(`Booking flight ${flight.flightName} from ${flight.fromPlace} to ${flight.toPlace}`);
   }
 }

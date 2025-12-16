@@ -1,5 +1,5 @@
 <div class="flights-container">
-  <!-- Header -->
+  
   <header class="header">
     <div class="header-content">
       <div class="header-icon">
@@ -15,7 +15,7 @@
   </header>
 
   <div class="main-content">
-    <!-- Search Section -->
+    
     <div class="search-card">
       <div class="search-header">
         <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <!-- Results Header -->
+    
     <div class="results-header">
       <div>
         <h2>Available Flights</h2>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <!-- Flight Cards -->
+    
     <div class="flights-list">
       <div *ngFor="let flight of filteredFlights" class="flight-card">
         <div class="flight-card-header">
@@ -92,14 +92,14 @@
         </div>
 
         <div class="flight-details">
-          <!-- Departure -->
+          
           <div class="location-info">
             <div class="location-label">Departure</div>
             <div class="time">{{flight.departureTime}}</div>
             <div class="city">{{flight.fromPlace}}</div>
           </div>
 
-          <!-- Duration -->
+          
           <div class="duration-info">
             <div class="duration-text">{{calculateDuration(flight.departureTime, flight.arrivalTime)}}</div>
             <div class="flight-path">
@@ -112,7 +112,7 @@
             <div class="direct-label">Direct Flight</div>
           </div>
 
-          <!-- Arrival -->
+          
           <div class="location-info arrival">
             <div class="location-label">Arrival</div>
             <div class="time">{{flight.arrivalTime}}</div>
@@ -142,7 +142,7 @@
       </div>
     </div>
 
-    <!-- No Results -->
+  
     <div *ngIf="filteredFlights.length === 0" class="no-results">
       <svg class="no-results-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
