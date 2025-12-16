@@ -1,68 +1,107 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-header">
+      <div class="header-icon">
+        <svg class="user-icon" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5z"></path>
+          <path d="M20 21c0-4.4-3.6-8-8-8s-8 3.6-8 8"></path>
+        </svg>
+      </div>
+      <h1>Welcome Back</h1>
+      <p>Login to continue your journey</p>
+    </div>
+
     @if (!isLoggedIn) {
     <form
+      class="login-form"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
       novalidate
     >
+
       <div class="form-group">
-        <label for="username">Username</label>
+        <label>
+          Username
+        </label>
         <input
           type="text"
-          class="form-control"
+          class="form-input"
           name="username"
+          placeholder="Enter your username"
           [(ngModel)]="form.username"
           required
           #username="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+          [ngClass]="{ 'input-error': f.submitted && username.errors }"
         />
         @if (username.errors && f.submitted) {
-        <div class="invalid-feedback">Username is required!</div>
+          <div class="error-message">Username is required</div>
         }
       </div>
+
       <div class="form-group">
-        <label for="password">Password</label>
+        <label>
+          Password
+        </label>
         <input
           type="password"
-          class="form-control"
+          class="form-input"
           name="password"
+          placeholder="Enter your password"
           [(ngModel)]="form.password"
           required
           minlength="6"
           #password="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+          [ngClass]="{ 'input-error': f.submitted && password.errors }"
         />
         @if (password.errors && f.submitted) {
-        <div class="invalid-feedback">
-          @if (password.errors['required']) {
-          <div>Password is required</div>
-          }
-          @if (password.errors['minlength']) {
-          <div>Password must be at least 6 characters</div>
-          }
-        </div>
+          <div class="error-message">
+            @if (password.errors['required']) {
+              Password is required
+            }
+            @if (password.errors['minlength']) {
+              Minimum 6 characters required
+            }
+          </div>
         }
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary btn-block">Login</button>
-      </div>
-      <div class="form-group">
-        @if (f.submitted && isLoginFailed) {
-        <div class="alert alert-danger" role="alert">
-          Login failed: {{ errorMessage }}
+
+      @if (f.submitted && isLoginFailed) {
+        <div class="alert-error">
+          <strong>Login Failed</strong>
+          <p>{{ errorMessage }}</p>
         </div>
-        }
-      </div>
+      }
+
+      <button class="submit-button">
+        Login
+        <svg class="button-arrow" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path d="M5 12h14"></path>
+          <path d="M13 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <p class="footer-text">
+        Don’t have an account?
+        <a routerLink="/register" class="link">Create one</a>
+      </p>
+
     </form>
     } @else {
-    <div class="alert alert-success">Logged in as {{ roles }}.</div>
+      <div class="success-container">
+        <div class="success-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path d="M5 13l4 4L19 7"></path>
+          </svg>
+        </div>
+        <h2>Logged In</h2>
+        <p>You are logged in as <strong>{{ roles }}</strong></p>
+      </div>
     }
+
   </div>
 </div>
