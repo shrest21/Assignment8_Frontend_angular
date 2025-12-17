@@ -13,7 +13,6 @@
       <p>Login to continue your journey</p>
     </div>
 
-    @if (!isLoggedIn) {
     <form
       class="register-form"
       name="form"
@@ -23,9 +22,7 @@
     >
 
       <div class="form-group">
-        <label>
-          Username
-        </label>
+        <label>Username</label>
         <input
           type="text"
           class="form-input"
@@ -42,9 +39,7 @@
       </div>
 
       <div class="form-group">
-        <label>
-          Password
-        </label>
+        <label>Password</label>
         <input
           type="password"
           class="form-input"
@@ -90,18 +85,6 @@
       </p>
 
     </form>
-    } @else {
-      <div class="success-container">
-        <div class="success-icon">
-          <svg fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24">
-            <path d="M5 13l4 4L19 7"></path>
-          </svg>
-        </div>
-        <h2>Logged In</h2>
-        <p>You are logged in as <strong>{{ roles }}</strong></p>
-      </div>
-    }
 
   </div>
 </div>
