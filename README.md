@@ -1,3 +1,54 @@
+# Frontend Application for Dockerized Microservices
+
+## Overview
+This repository contains the frontend application for a microservices-based system.
+The frontend communicates with Dockerized backend microservices via an API Gateway,
+ensuring scalability and clean architecture.
+
+---
+
+## Architecture
+The frontend interacts only with the API Gateway. The gateway routes requests
+to the appropriate backend microservices.
+
+Flights : localhost:4200/flights
+Signup: localhost:4200/register
+Signin: localhost:4200/login
+Backend Apigateway endpoint : localhost:8085
+
+## 📸 Application Screenshots
+
+### 🔐 Sign In Page
+![Sign In Page](Screenshots/Signin.png)
+
+---
+
+### 📝 Sign Up Page
+![Sign Up Page](Screenshots/Signup.png)
+
+---
+
+### ✈️ Flights Page
+![Flights Page](Screenshots/Flights.png)
+
+### Backend (Integrated)
+- Spring Boot Microservices
+- Spring Cloud Gateway
+- Eureka Service Discovery
+
+## Tech Stack
+
+### Frontend
+- Angular
+- TypeScript
+- HTML5, CSS3
+
+### DevOps
+- Docker
+- Docker Compose
+
+
+
 # Angular17JwtAuth
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
