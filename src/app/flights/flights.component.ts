@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FlightService } from '../_services/flight.service';
+import { StorageService } from '../_services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-flights',
@@ -18,7 +20,7 @@ export class FlightsComponent implements OnInit {
   searchTo: string = '';
   selectedDate: string = '';
 
-  constructor(private flightService: FlightService) {}
+  constructor(private flightService: FlightService, private storageService: StorageService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadFlights();
@@ -87,6 +89,17 @@ export class FlightsComponent implements OnInit {
 
   bookFlight(flight: any): void {
     console.log('Booking flight:', flight);
-    alert(`Booking flight ${flight.flightName} from ${flight.fromPlace} to ${flight.toPlace}`);
+    const user=this.storageService.getUser();
+    if(!user)
+    {
+      alert("Please login to continue booking");
+      return;
+    }
+    const bookingpayload={
+      flightId:flight.id,
+      userId:user.id,
+      bookingDate: new Date().toISOString(),
+    };
+    this.router.navigate(['/booking'],{state:{bookingpayload}});
   }
 }

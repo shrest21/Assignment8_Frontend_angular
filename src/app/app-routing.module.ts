@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   path: 'flights', 
   loadComponent: () => import('./flights/flights.component')
     .then(m => m.FlightsComponent)},
+  {path:'booking', component: BookingComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
