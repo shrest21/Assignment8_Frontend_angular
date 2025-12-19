@@ -19,11 +19,14 @@ export class FlightsComponent implements OnInit {
   searchFrom: string = '';
   searchTo: string = '';
   selectedDate: string = '';
+  today: string = '';
 
   constructor(private flightService: FlightService, private storageService: StorageService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadFlights();
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0];
   }
 
   loadFlights(): void {
