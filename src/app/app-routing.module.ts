@@ -10,6 +10,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BookingComponent } from './booking/booking.component';
 import {CancelComponent} from './cancel/cancel.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
     .then(m => m.FlightsComponent)},
   {path:'booking', component: BookingComponent},
   {path:'cancel', component:CancelComponent},
+  {path:'dashboard',component:DashboardComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
