@@ -1,5 +1,13 @@
-<div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
-</div>
+<h1>Add a new flight</h1>
+<form (ngSubmit)="addFlight()">
+  <label>Airline:* </label><input type="text" name="airline" [(ngModel)]="flight.airline" required>
+  <label>Flight ID:* </label><input type="text" name="flightId" [(ngModel)]="flight.flightName" required><br>
+  <label>From Place:* </label><input type="text" name="from" [(ngModel)]="flight.fromPlace" required>
+  <label>To Place:* </label><input type="text" name="to" [(ngModel)]="flight.toPlace" required><br>
+  <label>Departure time:* </label><input type="time" name="departTime" [(ngModel)]="flight.departureTime" required>
+  <label>Arrival time:* </label><input type="time" name="arrivalTime" [(ngModel)]="flight.arrivalTime" required><br>
+  <label>Flight date:* </label><input type="date" name="date" [(ngModel)]="flight.flightDate" required>
+  <label>Total seats:* </label><input type="number" name="seats" [(ngModel)]="flight.totalSeats" required><br>
+  <label>Price per seat:* </label><input type="number" name="price" [(ngModel)]="flight.price" required><br>
+  <button type="submit">Submit</button>
+</form>
