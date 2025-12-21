@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
       alert("Please login");
       window.location.href='/login';
     }
+    this.checkPassword(this.currentUser.lastPasswordUpdatedAt);
   }
   checkPassword(lastChange: string): void{
     const lastDate = new Date(lastChange);
