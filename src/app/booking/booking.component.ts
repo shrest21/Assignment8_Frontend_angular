@@ -26,6 +26,10 @@ export class BookingComponent {
 
   const user = this.storageService.getUser();
   console.log(user);
+  if(!user){
+    alert("Pls login to continue.");
+    return;
+  }
   const payload = {
     flightId: this.bookingpayload.flightId,
     email: user.email,

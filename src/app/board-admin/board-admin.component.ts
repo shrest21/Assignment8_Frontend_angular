@@ -1,28 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../_services/user.service';
+import { Router } from '@angular/router';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-board-admin',
-  templateUrl: './board-admin.component.html',
-  styleUrls: ['./board-admin.component.css']
+  templateUrl: './board-admin.component.html'
 })
 export class BoardAdminComponent implements OnInit {
-  content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe({
-      next: data => {
-        this.content = data;
-      },
-      error: err => {console.log(err)
-        if (err.error) {
-          this.content = JSON.parse(err.error).message;
-        } else {
-          this.content = "Error with status: " + err.status;
-        }
-      }
-    });
+    const user = this.storageService.getUser();
+
+    // Not logged in
+    if (!user) {
+      alert('Please login as admin');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    // Logged in but not admin
+    if (!user.roles || !user.roles.includes('ROLE_ADMIN')) {
+      alert('Login as admin to access this page');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    // ✅ Admin → allow page
+    console.log('Admin access granted');
   }
 }
