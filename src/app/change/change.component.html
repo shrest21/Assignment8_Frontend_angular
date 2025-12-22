@@ -1,0 +1,6 @@
+<h1>Welcome to Change Password</h1>
+<form (ngSubmit)="check()">
+    <label>New Password: </label><input type="text" name="pass" [(ngModel)]="pass"required><br>
+    <label>Retype New Password: </label><input type="text" name="recheckpass" [(ngModel)]="recheckpass" required><br>
+    <button type="submit">Submit</button>
+</form>

@@ -11,6 +11,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BookingComponent } from './booking/booking.component';
 import {CancelComponent} from './cancel/cancel.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import{ChangeComponent} from './change/change.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:'booking', component: BookingComponent},
   {path:'cancel', component:CancelComponent},
   {path:'dashboard',component:DashboardComponent},
+  {path:'change',component:ChangeComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
