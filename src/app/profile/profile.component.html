@@ -19,6 +19,11 @@
 } @else {
 <p>Please login.</p>
 }
-@if(showPasswordPopup){
-  <button>Change password</button>
+@if (showPasswordPopup) {
+  <div class="popup-overlay">
+    <div class="popup-box">
+      <p>Your password is older than 10 days.</p>
+      <button (click)="goToChangePassword()">Change Password</button>
+    </div>
+  </div>
 }
