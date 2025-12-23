@@ -13,6 +13,9 @@
   <ul>
     @for (role of currentUser.roles; track role) {
     <li>{{ role }}</li>
+    <li>
+      <a href="/change">Change Password</a>
+    </li>
     }
   </ul>
 </div>
